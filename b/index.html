@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SWEETDEO — 근거로 만든 유산균 (Probiotics, backed by research)</title>
+<meta name="description" content="SWEETDEO는 논문과 특허로 증명한 한국형 맞춤 유산균·건강 음료 브랜드입니다. β-글루칸 기술, IDDSI 기준, 비건·제로슈거·할랄. SWEETDEO is a research-backed Korean probiotics & personalized-nutrition beverage brand.">
+<link rel="canonical" href="https://www.sweetdeo.store/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --cream:#F3E9D6;
+    --cream-2:#EADBC2;
+    --ink:#17110C;
+    --coral:#EE5A36;
+    --berry:#9C2D4F;
+    --forest:#2C5942;
+    --paper:#FBF5EA;
+    --line:#17110C;
+    --radius:22px;
+    --maxw:1320px;
+    --display:"Bricolage Grotesque","Pretendard",system-ui,sans-serif;
+    --mono:"Space Grotesk","Pretendard",monospace;
+    --body:"Pretendard","Bricolage Grotesque",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:var(--body);
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.5;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:-0.01em;
+  }
+  /* paper grain overlay */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9999;
+    opacity:0.05;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  ::selection{background:var(--coral);color:var(--paper);}
+
+  /* ============ NAV ============ */
+  header.nav{
+    position:sticky;top:0;z-index:100;
+    background:var(--cream);
+    border-bottom:2px solid var(--ink);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:68px;gap:24px;
+  }
+  .logo{
+    font-family:var(--display);
+    font-weight:800;
+    font-size:24px;
+    letter-spacing:-0.04em;
+    text-transform:uppercase;
+    display:flex;align-items:center;gap:8px;
+  }
+  .logo .dot{width:11px;height:11px;border-radius:50%;background:var(--coral);display:inline-block;}
+  nav.menu{display:flex;gap:30px;align-items:center;}
+  nav.menu a{
+    font-family:var(--mono);
+    font-weight:600;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    position:relative;padding:4px 0;
+  }
+  nav.menu a::after{
+    content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--ink);transition:width .25s ease;
+  }
+  nav.menu a:hover::after{width:100%;}
+  .nav-right{display:flex;align-items:center;gap:14px;}
+  .lang{
+    display:flex;border:2px solid var(--ink);border-radius:30px;overflow:hidden;font-family:var(--mono);font-weight:700;font-size:12px;
+  }
+  .lang button{
+    background:transparent;border:none;cursor:pointer;padding:7px 12px;font:inherit;color:var(--ink);transition:.2s;
+  }
+  .lang button.active{background:var(--ink);color:var(--cream);}
+  .cta{
+    font-family:var(--mono);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.02em;
+    background:var(--coral);color:var(--paper);
+    padding:11px 18px;border-radius:30px;border:2px solid var(--ink);
+    transition:transform .15s ease, background .2s ease;white-space:nowrap;
+  }
+  .cta:hover{background:var(--ink);transform:translateY(-1px);}
+  .burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;}
+  .burger span{width:26px;height:2.5px;background:var(--ink);display:block;}
+
+  /* ============ HERO ============ */
+  .hero{padding:72px 0 36px;position:relative;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:44px;align-items:end;}
+  .kicker{
+    font-family:var(--mono);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:0.14em;
+    display:inline-flex;align-items:center;gap:10px;margin-bottom:26px;
+  }
+  .kicker::before{content:"";width:34px;height:2px;background:var(--coral);}
+  h1.hero-h{
+    font-family:var(--display);
+    font-weight:800;
+    font-size:clamp(48px,7.4vw,108px);
+    line-height:0.92;
+    letter-spacing:-0.045em;
+    margin-bottom:26px;
+  }
+  h1.hero-h em{font-style:normal;color:var(--coral);}
+  h1.hero-h .berry{color:var(--berry);}
+  .hero-sub{
+    font-size:clamp(16px,1.6vw,20px);max-width:30ch;color:var(--ink);
+    font-weight:500;margin-bottom:30px;line-height:1.45;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .btn-primary{
+    font-family:var(--mono);font-weight:700;font-size:15px;text-transform:uppercase;
+    background:var(--ink);color:var(--cream);padding:16px 28px;border-radius:34px;border:2px solid var(--ink);
+    transition:transform .15s, background .2s;display:inline-block;
+  }
+  .btn-primary:hover{background:var(--coral);color:var(--paper);transform:translateY(-2px);}
+  .btn-ghost{
+    font-family:var(--mono);font-weight:700;font-size:15px;text-transform:uppercase;
+    padding:16px 24px;border-radius:34px;border:2px solid var(--ink);transition:.2s;
+  }
+  .btn-ghost:hover{background:var(--ink);color:var(--cream);}
+
+  /* image slot */
+  .slot{
+    position:relative;border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+  }
+  .slot .slot-label{
+    font-family:var(--mono);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;
+    opacity:0.62;padding:18px;line-height:1.6;
+  }
+  .slot .slot-mark{
+    font-family:var(--display);font-weight:800;font-size:clamp(40px,5vw,80px);letter-spacing:-0.05em;opacity:0.12;
+    position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);pointer-events:none;
+  }
+  .hero-slot{aspect-ratio:4/5;background:var(--coral);color:var(--paper);}
+  .hero-slot .slot-label{color:var(--paper);opacity:0.85;}
+  .hero-slot .slot-mark{color:var(--paper);opacity:0.18;}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;}
+  .tag{
+    font-family:var(--mono);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;
+    border:2px solid var(--ink);border-radius:30px;padding:7px 14px;background:var(--paper);
+  }
+
+  /* ============ MARQUEE ============ */
+  .marquee{
+    background:var(--ink);color:var(--cream);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+    overflow:hidden;padding:18px 0;margin-top:24px;
+  }
+  .marquee-track{display:flex;white-space:nowrap;width:max-content;animation:scroll 32s linear infinite;}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  .marquee-track span{
+    font-family:var(--display);font-weight:700;font-size:clamp(22px,2.6vw,38px);letter-spacing:-0.02em;
+    padding:0 26px;display:inline-flex;align-items:center;gap:26px;
+  }
+  .marquee-track span::after{content:"●";color:var(--coral);font-size:0.5em;}
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ============ SECTION SHELL ============ */
+  section.block{padding:96px 0;}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px;flex-wrap:wrap;}
+  .sec-title{
+    font-family:var(--display);font-weight:800;font-size:clamp(34px,5vw,68px);line-height:0.96;letter-spacing:-0.04em;max-width:18ch;
+  }
+  .sec-title em{font-style:normal;color:var(--coral);}
+  .sec-note{font-family:var(--mono);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;max-width:30ch;opacity:0.7;}
+
+  /* ============ PRODUCTS ============ */
+  .products{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .pcard{
+    border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .2s ease;background:var(--paper);
+  }
+  .pcard:hover{transform:translateY(-6px);}
+  .pcard .pslot{aspect-ratio:1/1;border:none;border-bottom:2px solid var(--ink);border-radius:0;}
+  .pcard.c1 .pslot{background:var(--berry);color:var(--paper);}
+  .pcard.c2 .pslot{background:var(--forest);color:var(--paper);}
+  .pcard.c3 .pslot{background:var(--coral);color:var(--paper);}
+  .pcard .pslot .slot-label{color:var(--paper);opacity:0.85;}
+  .pcard .pslot .slot-mark{color:var(--paper);opacity:0.16;}
+  .pcard .pbody{padding:24px 22px 26px;display:flex;flex-direction:column;flex:1;}
+  .pcard .pno{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:0.08em;opacity:0.55;margin-bottom:10px;}
+  .pcard h3{font-family:var(--display);font-weight:800;font-size:27px;letter-spacing:-0.03em;line-height:1.02;margin-bottom:8px;}
+  .pcard .ptag{font-family:var(--mono);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px;}
+  .pcard.c1 .ptag{color:var(--berry);}
+  .pcard.c2 .ptag{color:var(--forest);}
+  .pcard.c3 .ptag{color:var(--coral);}
+  .pcard p.pdesc{font-size:15px;line-height:1.5;font-weight:500;margin-bottom:20px;flex:1;}
+  .pcard .plink{
+    font-family:var(--mono);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.04em;
+    border-top:2px solid var(--ink);padding-top:16px;display:inline-flex;justify-content:space-between;align-items:center;
+  }
+  .pcard .plink .arr{transition:transform .2s;}
+  .pcard:hover .plink .arr{transform:translateX(5px);}
+
+  /* ============ SCIENCE ============ */
+  .science{background:var(--ink);color:var(--cream);}
+  .science .sec-title em{color:var(--coral);}
+  .science .sec-note{opacity:0.6;}
+  .sci-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--cream);border-radius:var(--radius);overflow:hidden;}
+  .sci-cell{padding:34px 26px;border-right:2px solid var(--cream);}
+  .sci-cell:last-child{border-right:none;}
+  .sci-num{font-family:var(--display);font-weight:800;font-size:clamp(48px,6vw,88px);line-height:0.9;letter-spacing:-0.04em;color:var(--coral);margin-bottom:14px;}
+  .sci-cell:nth-child(2) .sci-num{color:var(--cream);}
+  .sci-cell:nth-child(3) .sci-num{color:var(--coral);}
+  .sci-cell:nth-child(4) .sci-num{color:var(--cream);}
+  .sci-lab{font-family:var(--mono);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;}
+  .sci-desc{font-size:14px;line-height:1.5;opacity:0.78;font-weight:500;}
+  .sci-foot{font-family:var(--mono);font-weight:600;font-size:13px;letter-spacing:0.04em;opacity:0.55;margin-top:28px;text-align:center;text-transform:uppercase;}
+
+  /* ============ WHY US ============ */
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;}
+  .why-cell{padding:42px 38px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);}
+  .why-cell:nth-child(2n){border-right:none;}
+  .why-cell:nth-child(3),.why-cell:nth-child(4){border-bottom:none;}
+  .why-cell .wnum{font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:0.06em;color:var(--coral);margin-bottom:18px;}
+  .why-cell h3{font-family:var(--display);font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-0.03em;line-height:1.02;margin-bottom:14px;}
+  .why-cell p{font-size:15.5px;line-height:1.55;font-weight:500;max-width:42ch;}
+
+  /* ============ SOCIAL PROOF ============ */
+  .proof{background:var(--cream-2);}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .quote{
+    border:2px solid var(--ink);border-radius:var(--radius);padding:30px 28px;background:var(--paper);display:flex;flex-direction:column;gap:18px;
+  }
+  .quote .stars{font-family:var(--mono);font-weight:700;letter-spacing:0.12em;color:var(--coral);font-size:15px;}
+  .quote blockquote{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.28;letter-spacing:-0.02em;}
+  .quote .who{font-family:var(--mono);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;opacity:0.65;margin-top:auto;}
+
+  /* ============ CTA BAND ============ */
+  .band{background:var(--coral);color:var(--paper);text-align:center;padding:90px 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);}
+  .band h2{font-family:var(--display);font-weight:800;font-size:clamp(36px,6vw,82px);line-height:0.95;letter-spacing:-0.04em;margin-bottom:20px;max-width:16ch;margin-left:auto;margin-right:auto;}
+  .band p{font-size:18px;font-weight:500;margin-bottom:34px;max-width:38ch;margin-left:auto;margin-right:auto;}
+  .band .btn-primary{background:var(--paper);color:var(--ink);border-color:var(--ink);}
+  .band .btn-primary:hover{background:var(--ink);color:var(--paper);}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--ink);color:var(--cream);padding:70px 0 36px;}
+  .foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:36px;padding-bottom:48px;border-bottom:1px solid rgba(243,233,214,0.25);}
+  .foot-logo{font-family:var(--display);font-weight:800;font-size:42px;letter-spacing:-0.04em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .foot-logo .dot{width:14px;height:14px;border-radius:50%;background:var(--coral);}
+  .foot-blurb{font-size:15px;line-height:1.55;max-width:34ch;opacity:0.8;font-weight:500;}
+  .foot-col h4{font-family:var(--mono);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.55;margin-bottom:18px;}
+  .foot-col a, .foot-col p{display:block;font-size:15px;font-weight:500;margin-bottom:11px;opacity:0.9;transition:.2s;}
+  .foot-col a:hover{opacity:1;color:var(--coral);}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;gap:18px;flex-wrap:wrap;}
+  .foot-bottom p{font-family:var(--mono);font-size:12px;letter-spacing:0.03em;opacity:0.55;text-transform:uppercase;}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ============ RESPONSIVE ============ */
+  @media(max-width:1000px){
+    .hero-grid{grid-template-columns:1fr;gap:36px;}
+    .products{grid-template-columns:1fr;}
+    .quotes{grid-template-columns:1fr;}
+    .sci-grid{grid-template-columns:1fr 1fr;}
+    .sci-cell:nth-child(2){border-right:none;}
+    .sci-cell:nth-child(1),.sci-cell:nth-child(2){border-bottom:2px solid var(--cream);}
+  }
+  @media(max-width:760px){
+    nav.menu{display:none;}
+    .burger{display:flex;}
+    .nav-right .cta{display:none;}
+    .why-grid{grid-template-columns:1fr;}
+    .why-cell{border-right:none;border-bottom:2px solid var(--ink);}
+    .why-cell:nth-child(4){border-bottom:none;}
+    .foot-top{grid-template-columns:1fr;gap:30px;}
+    section.block{padding:64px 0;}
+    .hero{padding:48px 0 24px;}
+  }
+  @media(max-width:520px){
+    .sci-grid{grid-template-columns:1fr;}
+    .sci-cell{border-right:none;border-bottom:2px solid var(--cream);}
+    .sci-cell:last-child{border-bottom:none;}
+    .wrap{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo"><span class="dot"></span>SWEETDEO</a>
+    <nav class="menu">
+      <a href="#products" data-kr="제품" data-en="Drinks">제품</a>
+      <a href="#science" data-kr="과학" data-en="Science">과학</a>
+      <a href="#why" data-kr="우리답게" data-en="Why us">우리답게</a>
+      <a href="#proof" data-kr="후기" data-en="Reviews">후기</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="language">
+        <button id="btn-kr" class="active" onclick="setLang('kr')">KR</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="cta" href="https://smartstore.naver.com/sweetdeo" target="_blank" rel="noopener" data-kr="스토어 가기" data-en="Shop now">스토어 가기</a>
+      <button class="burger" aria-label="menu" onclick="document.querySelector('nav.menu').style.display='flex'"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker" data-kr="유산균, 그런데 근거 있는" data-en="Probiotics, with the receipts">유산균, 그런데 근거 있는</span>
+      <h1 class="hero-h" data-kr="장(腸)이<br>읽을 수 있는<br><em>유산균.</em>" data-en="Gut feelings<br>are fine.<br><em>Gut facts</em> are<br><span class='berry'>better.</span>">장(腸)이<br>읽을 수 있는<br><em>유산균.</em></h1>
+      <p class="hero-sub" data-kr="논문 5편과 특허로 증명한 한국형 맞춤 유산균. 마케팅 카피가 아니라 데이터로 말합니다." data-en="A Korean probiotics line proven by 5 papers and a patent. We talk in data, not in adjectives.">논문 5편과 특허로 증명한 한국형 맞춤 유산균. 마케팅 카피가 아니라 데이터로 말합니다.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="https://smartstore.naver.com/sweetdeo" target="_blank" rel="noopener" data-kr="스마트스토어에서 구매" data-en="Buy on SmartStore">스마트스토어에서 구매</a>
+        <a class="btn-ghost" href="#science" data-kr="근거 보기" data-en="See the proof">근거 보기</a>
+      </div>
+      <div class="hero-tags">
+        <span class="tag" data-kr="비건" data-en="Vegan">비건</span>
+        <span class="tag" data-kr="제로슈거" data-en="Zero sugar">제로슈거</span>
+        <span class="tag" data-kr="할랄" data-en="Halal">할랄</span>
+        <span class="tag" data-kr="β-글루칸 특허" data-en="β-glucan patent">β-글루칸 특허</span>
+        <span class="tag" data-kr="IDDSI 기준" data-en="IDDSI graded">IDDSI 기준</span>
+      </div>
+    </div>
+    <div>
+      <div class="slot hero-slot">
+        <span class="slot-mark">SWEETDEO</span>
+        <span class="slot-label" data-kr="제품 컷 · 추후 교체" data-en="Product shot · TBD">제품 컷 · 추후 교체</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span data-kr="근거 있는 유산균" data-en="Probiotics with receipts">근거 있는 유산균</span>
+    <span data-kr="논문 5편" data-en="5 peer-reviewed papers">논문 5편</span>
+    <span data-kr="β-글루칸 특허" data-en="β-glucan patent">β-글루칸 특허</span>
+    <span data-kr="비건 · 제로슈거 · 할랄" data-en="Vegan · Zero sugar · Halal">비건 · 제로슈거 · 할랄</span>
+    <span data-kr="IDDSI 기준" data-en="IDDSI graded">IDDSI 기준</span>
+    <span data-kr="근거 있는 유산균" data-en="Probiotics with receipts">근거 있는 유산균</span>
+    <span data-kr="논문 5편" data-en="5 peer-reviewed papers">논문 5편</span>
+    <span data-kr="β-글루칸 특허" data-en="β-glucan patent">β-글루칸 특허</span>
+    <span data-kr="비건 · 제로슈거 · 할랄" data-en="Vegan · Zero sugar · Halal">비건 · 제로슈거 · 할랄</span>
+    <span data-kr="IDDSI 기준" data-en="IDDSI graded">IDDSI 기준</span>
+  </div>
+</div>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="block" id="products">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="sec-title" data-kr="세 가지 맛.<br>전부 <em>이유</em>가 있음." data-en="Three drinks.<br>Each with a <em>reason</em>.">세 가지 맛.<br>전부 <em>이유</em>가 있음.</h2>
+      <p class="sec-note" data-kr="유행이 아니라 필요로 만든 라인업. 골라 마시거나, 다 마시거나." data-en="Built on need, not on trends. Pick one, or drink the whole shelf.">유행이 아니라 필요로 만든 라인업. 골라 마시거나, 다 마시거나.</p>
+    </div>
+    <div class="products">
+
+      <article class="pcard c1 reveal">
+        <div class="slot pslot">
+          <span class="slot-mark">BERRY</span>
+          <span class="slot-label" data-kr="제품 컷 · 추후 교체" data-en="Product shot · TBD">제품 컷 · 추후 교체</span>
+        </div>
+        <div class="pbody">
+          <div class="pno">01</div>
+          <h3 data-kr="티플라이 베리" data-en="Teafly Berry">티플라이 베리</h3>
+          <div class="ptag" data-kr="베리 · 데일리 유산균" data-en="Berry · Daily probiotics">베리 · 데일리 유산균</div>
+          <p class="pdesc" data-kr="붉은 베리의 산뜻함 뒤에 균주가 일하는 음료. 단맛은 0, 일은 100." data-en="Bright berry up front, working strains behind it. Zero sugar, all shift.">붉은 베리의 산뜻함 뒤에 균주가 일하는 음료. 단맛은 0, 일은 100.</p>
+          <a class="plink" href="https://smartstore.naver.com/sweetdeo" target="_blank" rel="noopener"><span data-kr="구매하기" data-en="Add to cart">구매하기</span><span class="arr">→</span></a>
+        </div>
+      </article>
+
+      <article class="pcard c2 reveal">
+        <div class="slot pslot">
+          <span class="slot-mark">GREEN</span>
+          <span class="slot-label" data-kr="제품 컷 · 추후 교체" data-en="Product shot · TBD">제품 컷 · 추후 교체</span>
+        </div>
+        <div class="pbody">
+          <div class="pno">02</div>
+          <h3 data-kr="티가든 그린" data-en="Teagarden Green">티가든 그린</h3>
+          <div class="ptag" data-kr="그린 · 식이섬유 + 균주" data-en="Green · Fiber + strains">그린 · 식이섬유 + 균주</div>
+          <p class="pdesc" data-kr="채소를 싫어해도 채소가 필요한 장을 위해. 풀내 없이, 효과는 그대로." data-en="For guts that need greens from people who don't. All the fiber, none of the lawn.">채소를 싫어해도 채소가 필요한 장을 위해. 풀내 없이, 효과는 그대로.</p>
+          <a class="plink" href="https://smartstore.naver.com/sweetdeo" target="_blank" rel="noopener"><span data-kr="구매하기" data-en="Add to cart">구매하기</span><span class="arr">→</span></a>
+        </div>
+      </article>
+
+      <article class="pcard c3 reveal">
+        <div class="slot pslot">
+          <span class="slot-mark">CARE</span>
+          <span class="slot-label" data-kr="제품 컷 · 추후 교체" data-en="Product shot · TBD">제품 컷 · 추후 교체</span>
+        </div>
+        <div class="pbody">
+          <div class="pno">03</div>
+          <h3 data-kr="뉴트리아지 케어" data-en="Nutriage Care">뉴트리아지 케어</h3>
+          <div class="ptag" data-kr="케어 · 삼킴 IDDSI 설계" data-en="Care · IDDSI-tuned texture">케어 · 삼킴 IDDSI 설계</div>
+          <p class="pdesc" data-kr="삼킴이 조심스러운 분들을 위해 점도까지 설계한 영양 음료. 배려는 디테일에서." data-en="A nutrition drink engineered down to its viscosity, for cautious swallows. Care lives in the details.">삼킴이 조심스러운 분들을 위해 점도까지 설계한 영양 음료. 배려는 디테일에서.</p>
+          <a class="plink" href="https://smartstore.naver.com/sweetdeo" target="_blank" rel="noopener"><span data-kr="구매하기" data-en="Add to cart">구매하기</span><span class="arr">→</span></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCIENCE ============ -->
+<section class="block science" id="science">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="sec-title" data-kr="과학, <em>군더더기 없이.</em>" data-en="The science,<br><em>no nonsense.</em>">과학, <em>군더더기 없이.</em></h2>
+      <p class="sec-note" data-kr="'몸에 좋아요'는 누구나 합니다. 우리는 숫자를 첨부합니다." data-en="Anyone can say 'good for you'. We attach the footnotes.">'몸에 좋아요'는 누구나 합니다. 우리는 숫자를 첨부합니다.</p>
+    </div>
+    <div class="sci-grid reveal">
+      <div class="sci-cell">
+        <div class="sci-num">5</div>
+        <div class="sci-lab" data-kr="동료심사 논문" data-en="Peer-reviewed papers">동료심사 논문</div>
+        <div class="sci-desc" data-kr="제품 뒤에 5편의 연구. 광고가 아니라 출처입니다." data-en="Five studies stand behind the bottle — sources, not slogans.">제품 뒤에 5편의 연구. 광고가 아니라 출처입니다.</div>
+      </div>
+      <div class="sci-cell">
+        <div class="sci-num">β</div>
+        <div class="sci-lab" data-kr="β-글루칸 특허" data-en="β-glucan patent">β-글루칸 특허</div>
+        <div class="sci-desc" data-kr="효모 세포벽 유래 β-글루칸. 독자 기술, 등록된 특허." data-en="Yeast cell-wall β-glucan. Our own tech, on the patent register.">효모 세포벽 유래 β-글루칸. 독자 기술, 등록된 특허.</div>
+      </div>
+      <div class="sci-cell">
+        <div class="sci-num">IDDSI</div>
+        <div class="sci-lab" data-kr="점도 국제기준" data-en="Texture standard">점도 국제기준</div>
+        <div class="sci-desc" data-kr="삼킴 안전 국제 프레임워크에 맞춘 설계. 감이 아니라 기준." data-en="Tuned to the global swallow-safety framework. Standards, not guesswork.">삼킴 안전 국제 프레임워크에 맞춘 설계. 감이 아니라 기준.</div>
+      </div>
+      <div class="sci-cell">
+        <div class="sci-num">0</div>
+        <div class="sci-lab" data-kr="설탕 · 동물성" data-en="Sugar · Animal">설탕 · 동물성</div>
+        <div class="sci-desc" data-kr="제로슈거 · 100% 비건 · 할랄. 빼야 할 건 다 뺐습니다." data-en="Zero sugar · fully vegan · halal. We left out what should be left out.">제로슈거 · 100% 비건 · 할랄. 빼야 할 건 다 뺐습니다.</div>
+      </div>
+    </div>
+    <p class="sci-foot" data-kr="* 연구 자료 및 특허 정보는 요청 시 제공됩니다 — sweetdeo@sweetdeo.co.kr" data-en="* Studies & patent details available on request — sweetdeo@sweetdeo.co.kr">* 연구 자료 및 특허 정보는 요청 시 제공됩니다 — sweetdeo@sweetdeo.co.kr</p>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="block" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="sec-title" data-kr="우리가 다른<br><em>네 가지</em> 방식." data-en="Four ways we<br>refuse to be<br><em>average.</em>">우리가 다른<br><em>네 가지</em> 방식.</h2>
+      <p class="sec-note" data-kr="잘 팔리는 말 대신, 지킬 수 있는 말만 합니다." data-en="We skip the words that sell and keep the ones we can keep.">잘 팔리는 말 대신, 지킬 수 있는 말만 합니다.</p>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-cell">
+        <div class="wnum">01 —</div>
+        <h3 data-kr="유행을 넣지 않습니다" data-en="No trend, just need">유행을 넣지 않습니다</h3>
+        <p data-kr="이번 분기 인기 성분이 아니라, 장이 실제로 필요로 하는 균주를 넣습니다. 트렌드는 유통기한이 짧으니까요." data-en="Not this quarter's hype ingredient — the strains your gut actually asked for. Trends expire faster than yogurt.">이번 분기 인기 성분이 아니라, 장이 실제로 필요로 하는 균주를 넣습니다. 트렌드는 유통기한이 짧으니까요.</p>
+      </div>
+      <div class="why-cell">
+        <div class="wnum">02 —</div>
+        <h3 data-kr="단맛으로 속이지 않습니다" data-en="We don't bribe you with sugar">단맛으로 속이지 않습니다</h3>
+        <p data-kr="맛있게 만들기 위해 설탕을 붓는 건 쉽습니다. 제로슈거로 맛있게 만드는 게 진짜 일이죠." data-en="Dumping sugar in to make it tasty is easy. Making it tasty at zero sugar is the actual job.">맛있게 만들기 위해 설탕을 붓는 건 쉽습니다. 제로슈거로 맛있게 만드는 게 진짜 일이죠.</p>
+      </div>
+      <div class="why-cell">
+        <div class="wnum">03 —</div>
+        <h3 data-kr="삼킴까지 설계합니다" data-en="We engineer the swallow">삼킴까지 설계합니다</h3>
+        <p data-kr="대부분의 음료는 '마실 수 있다'에서 끝납니다. 우리는 '안전하게 삼킬 수 있다'까지 IDDSI로 설계합니다." data-en="Most drinks stop at 'drinkable'. We design all the way to 'safely swallowable', graded by IDDSI.">대부분의 음료는 '마실 수 있다'에서 끝납니다. 우리는 '안전하게 삼킬 수 있다'까지 IDDSI로 설계합니다.</p>
+      </div>
+      <div class="why-cell">
+        <div class="wnum">04 —</div>
+        <h3 data-kr="모두를 위해 비웠습니다" data-en="Left out, on purpose">모두를 위해 비웠습니다</h3>
+        <p data-kr="비건이든, 할랄이 필요하든, 당을 피하든 — 누군가를 빼놓지 않으려고 처음부터 비우고 시작했습니다." data-en="Vegan, halal, sugar-avoiding — we started by leaving things out so we'd leave no one out.">비건이든, 할랄이 필요하든, 당을 피하든 — 누군가를 빼놓지 않으려고 처음부터 비우고 시작했습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOCIAL PROOF ============ -->
+<section class="block proof" id="proof">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="sec-title" data-kr="장이<br><em>먼저</em> 알아챘다." data-en="Our guts<br>noticed <em>first.</em>">장이<br><em>먼저</em> 알아챘다.</h2>
+      <p class="sec-note" data-kr="스마트스토어 구매 고객의 실제 후기 중에서." data-en="From real reviews on our SmartStore.">스마트스토어 구매 고객의 실제 후기 중에서.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote data-kr="“달지 않은데 계속 손이 가요. 이게 제로슈거가 맞나 싶을 정도.”" data-en="“Not sweet, yet I keep reaching for it. Is this really zero sugar?”">“달지 않은데 계속 손이 가요. 이게 제로슈거가 맞나 싶을 정도.”</blockquote>
+        <div class="who" data-kr="티플라이 베리 · 재구매 고객" data-en="Teafly Berry · Repeat buyer">티플라이 베리 · 재구매 고객</div>
+      </div>
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote data-kr="“부모님이 삼키기 편하다고 하셔서 정기구독 걸었습니다.”" data-en="“My parents say it's easy to swallow — so I set up a subscription.”">“부모님이 삼키기 편하다고 하셔서 정기구독 걸었습니다.”</blockquote>
+        <div class="who" data-kr="뉴트리아지 케어 · 정기구독" data-en="Nutriage Care · Subscriber">뉴트리아지 케어 · 정기구독</div>
+      </div>
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote data-kr="“성분표 읽다가 신뢰가 생겼어요. 마케팅보다 자료가 많은 브랜드.”" data-en="“The label earned my trust. More data than marketing — rare.”">“성분표 읽다가 신뢰가 생겼어요. 마케팅보다 자료가 많은 브랜드.”</blockquote>
+        <div class="who" data-kr="티가든 그린 · 신규 고객" data-en="Teagarden Green · New buyer">티가든 그린 · 신규 고객</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="band">
+  <div class="wrap">
+    <h2 data-kr="장은 설득되지 않습니다.<br>증명될 뿐." data-en="Guts don't get persuaded.<br>They get proven right.">장은 설득되지 않습니다.<br>증명될 뿐.</h2>
+    <p data-kr="오늘 한 병으로 시작하세요. 결과는 데이터가, 맛은 당신이 판단합니다." data-en="Start with one bottle today. We'll bring the data, you bring the verdict.">오늘 한 병으로 시작하세요. 결과는 데이터가, 맛은 당신이 판단합니다.</p>
+    <a class="btn-primary" href="https://smartstore.naver.com/sweetdeo" target="_blank" rel="noopener" data-kr="스마트스토어에서 구매하기" data-en="Shop on SmartStore">스마트스토어에서 구매하기</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-logo"><span class="dot"></span>SWEETDEO</div>
+        <p class="foot-blurb" data-kr="근거로 만든 한국형 맞춤 유산균·건강 음료. 비건 · 제로슈거 · 할랄, 그리고 출처가 있는 약속." data-en="Research-backed Korean probiotics & personalized-nutrition drinks. Vegan, zero sugar, halal — and footnoted.">근거로 만든 한국형 맞춤 유산균·건강 음료. 비건 · 제로슈거 · 할랄, 그리고 출처가 있는 약속.</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-kr="둘러보기" data-en="Explore">둘러보기</h4>
+        <a href="#products" data-kr="제품" data-en="Drinks">제품</a>
+        <a href="#science" data-kr="과학" data-en="Science">과학</a>
+        <a href="#why" data-kr="우리답게" data-en="Why us">우리답게</a>
+        <a href="#proof" data-kr="후기" data-en="Reviews">후기</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-kr="연결" data-en="Connect">연결</h4>
+        <a href="https://smartstore.naver.com/sweetdeo" target="_blank" rel="noopener" data-kr="스마트스토어" data-en="SmartStore">스마트스토어</a>
+        <a href="mailto:sweetdeo@sweetdeo.co.kr">sweetdeo@sweetdeo.co.kr</a>
+        <p data-kr="문의 · 협업 · 연구자료 요청" data-en="Inquiries · Partnerships · Data requests">문의 · 협업 · 연구자료 요청</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 SWEETDEO. ALL RIGHTS RESERVED.</p>
+      <p data-kr="근거 있는 유산균 · MADE WITH FOOTNOTES" data-en="Probiotics with receipts · MADE WITH FOOTNOTES">근거 있는 유산균 · MADE WITH FOOTNOTES</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- Bilingual toggle (default KR) ----
+  function setLang(lang){
+    document.documentElement.lang = (lang === 'en') ? 'en' : 'ko';
+    document.querySelectorAll('[data-kr]').forEach(function(el){
+      var val = (lang === 'en') ? el.getAttribute('data-en') : el.getAttribute('data-kr');
+      if(val !== null) el.innerHTML = val;
+    });
+    document.getElementById('btn-kr').classList.toggle('active', lang === 'kr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    try{ localStorage.setItem('sweetdeo-lang', lang); }catch(e){}
+  }
+  (function(){
+    var saved = 'kr';
+    try{ saved = localStorage.getItem('sweetdeo-lang') || 'kr'; }catch(e){}
+    if(saved === 'en') setLang('en');
+  })();
+
+  // ---- Scroll reveal ----
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+
+</body>
+</html>

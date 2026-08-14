@@ -1,0 +1,17 @@
+# 내부 전략 문서 — 절대 공개 금지
+DISCLOSURE-REVIEW.md
+FUNNEL.md
+IMAGE-BRIEF.md
+journal/HOW-TO-WRITE.md
+
+# 초안 / 백업 HTML — 공개 사이트에 노출 금지
+index-v2.html
+index-v3.html
+index-v4.html
+index-legacy.html
+a/
+b/
+
+# 빌드 스크립트 & 소스 마크다운 (생성된 .html만 서빙)
+build_journal.py
+journal/posts/
